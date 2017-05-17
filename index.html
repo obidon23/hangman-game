@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta lang="en-us">
+	<meta charset="UTF-8">
+	<title>Hangman by Don</title>
+
+	<!-- fonts for the site -->
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Shadows+Into+Light" rel="stylesheet">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css"
+	
+	<!-- jQuery -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+Page layout
+<div class="container-fluid">
+	<header>
+		<h1>
+			Don's Awesome Hangman Game
+		</h1>
+	</header>
+
+	<div class="row intro">
+		<div class="col-lg-8 col-lg-offset-2">
+			<p>
+				Lives hang in the balance and you're the only one who can save them. Try to guess the words represented by the blank spaces below. Press a letter on your keyboard. If it's part of the word, you'll see it below. If not, then our poor prisoner will start to hang. Run out of guesses and it's too late! 
+			</p>
+		</div>
+	</div>
+
+	<div class="row" id="game" >	
+		<div class="col-lg-3 ">
+			<img src="assets/images/hangman.png" alt="hangman">
+		</div>
+		<div class="col-lg-7 col-lg-offset-1">
+				
+
+			<script>
+				document.write("<h2>How's It Hangin'?</h2>" + "<p>Press &lt;enter&gt; to start the game.</p>");
+			</script>
+
+			<script>
+				// Computer Selects a Solution
+				var computerChoices = ["Jon Snow", "Tyrion Lannister", "Daenerys Targaryen", "Catelyn Tully", "Petyr Baelish", "Theon Greyjoy"];				
+				var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+				var computerGuess = getElementById("game")
+
+				var computerGuess = document.createElement("h3");
+				computerGuess.innerHTML = computerGuess;
+				computerGuess.appendChild();
+
+				document.write(computerGuess);
+			};		
+
+			</script>
+
+			<script type="text/javascript">
+			
+
+
+				var wins = 0;
+				var guessesRemaining = 6;
+				var lastGuess;
+				var correctGuess;
+				var wrongGuess;
+				// wins counter
+
+				// starting the game
+				
+				// Computer Selects a Solution					}
+				var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+				document.write(computerChoices);	
+
+				// letters you've guessed
+				if ((currentGuess = "A") || ((currentGuess = "B") || ((currentGuess = "C") || ((currentGuess = "D") || ((currentGuess = "E") || ((currentGuess = "F") || ((currentGuess = "G") || ((currentGuess = "H") || ((currentGuess = "I") || ((currentGuess = "J") || ((currentGuess = "K") || ((currentGuess = "L") || ((currentGuess = "M") || ((currentGuess = "N") || ((currentGuess = "O") || ((currentGuess = "P") || ((currentGuess = "Q") || ((currentGuess = "R") || ((currentGuess = "S") || ((currentGuess = "T") || ((currentGuess = "U") || ((currentGuess = "V") || ((currentGuess = "W") || ((currentGuess = "X") || ((currentGuess = "Y") || ((currentGuess = "Z"))
+				// guesses remaining
+
+		         	 // Here we create the HTML that will be injected into our div and displayed on the page.
+      					var html = "<p>Pick a letter to start playing!</p>" +
+      					"<p>Wins: " + wins + "</p>" +
+     					 "<p>Current Word:" + "<br />" +
+      					computerChoices" + </p>" + "<br />" +
+      					"<p>You have " + remainingGuesses + " guesses remaining.</p>" + "<br />" +
+      					"<p>Letters you have guessed so far: " + currentGuess;
+
+         		 // Injecting the HTML we just created into our div and updating the game information on our page.
+          			document.querySelector("#game").innerHTML = html;
+
+        }
+      };	
+			</script>
+		</div>
+	</div>
+	
+	<footer class="row">
+		<div class="col-lg-12">
+			<p>
+				&copy; Copyright 2017 Don Guckenberger
+			</p>
+		</div>
+	</footer>
+</div>
+
+
+
+</body>
+
+
+
+</html>
