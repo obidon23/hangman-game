@@ -24,8 +24,8 @@ function start () {
 	}
 
 	document.getElementById("sandbox").innerHTML = goodLetters.join(" ");
-	document.getElementById("remainingGuesses").innerHTML = "<p>Remaining Guesses: " + remainingGuesses + "</p>";
-	document.getElementById("wins").innerHTML = "<p>Wins: " + wins +"</p>";
+	document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
+	document.getElementById("wins").innerHTML = wins;
 }
 
 function letterCheck() {
@@ -33,24 +33,46 @@ function letterCheck() {
 	var letterIndex = answer.indexOf(userGuess);
 
     if (letterIndex > -1) {
-        alert(userGuess + " is in the word!");
+
         for (i=0; i < goodLetters.length; i++) {
-        	goodLetters.indexOf(userGuess).join(" ");
+        	if (answer[i] == userGuess) {
+        		goodLetters[i] = (userGuess);
+ 			}       
         }
-        document.getElementById("sandbox").innerHTML = goodLetters;
+        document.getElementById("sandbox").innerHTML = "<h2>" + goodLetters.join(" ") + "</h2>";
+        
     } 
 
     else {
-        alert(userGuess + " is a wrong answer");
         wrongLetters.push(userGuess);
         remainingGuesses--;
-        document.getElementById("wrongLetters").innerHTML = "<p> Wrong Answers: </p>" + "<p>" +wrongLetters + " </p>";
-        document.getElementById("remainingGuesses").innerHTML = "<p>Remaining Guesses: </p>" + "<p>" + remainingGuesses + "</p>";
-
+        document.getElementById("wrongLetters").innerHTML = wrongLetters;
+        document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
+        
     }
+    gameCheck();
 }
 
-start();
+function gameCheck() {
+	if (remainingGuesses == 0) {
+		alert("Oh No! You Lost!");
+		}
+
+	else {
+		var blankCheck = goodLetters.indexOf("_")
+
+		if (blankCheck < 0) {
+			alert("You Won!");
+			wins++;
+		}
+	}
+
+}
+
+
+$("#start").on("click", function() {
+	start();
+});
 
 document.onkeyup = function(event) {
 	userGuess = event.key;
@@ -62,7 +84,6 @@ document.onkeyup = function(event) {
 		alert("Please press a letter!");
 	}
 }	
-
 
 
 
