@@ -55,11 +55,10 @@ h3 {
 
 .tracker {
 	background-color: gray;
-	border: 2px solid black;
 	color: #fff;
 	font-family: 'Shadows Into Light', cursive;
 	padding: 30px;
-	font-size: 40px;
+	font-size: 12px;
 }
 
 p  {
