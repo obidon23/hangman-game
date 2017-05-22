@@ -7,7 +7,7 @@ var computerChoices = ["stark", "lannister", "targaryen", "tully", "martell", "g
 var wins = 0;
 var blanks = [];
 var letterCount = [];
-
+var userGuess="";
 
 // start the game	
 function start () {
@@ -32,25 +32,25 @@ function start () {
 	document.getElementById("wins").innerHTML = "Wins: " + wins;
 }
 
-function letterCheck() {
+function letterCheck(userGuess) {
 	
-	alert("it's working");
-
 	var letterIndex = answer.indexOf(userGuess);
 
     if (letterIndex > -1) {
-        console.log('ya got it');
+        alert(userGuess + " is in the word!");
         goodLetters.push(userGuess);
+        document.getElementById("sandbox").innterHTML = goodLetters;
     } else {
-        console.log("WRONG");
+        alert(userGuess + " is a wrong answer");
         wrongLetters.push(userGuess);
+        remainingGuesses--;
     }
 }
+
 start();
 
 document.onkeyup = function(event) {
-	var userGuess = event.key;
-	console.log(userGuess);
+	userGuess = event.key;
 	letterCheck();
 	}
 
