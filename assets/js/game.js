@@ -23,9 +23,18 @@ function start () {
 		goodLetters.push("_");
 	}
 
+	document.onkeyup = function(event) {
+		userGuess = event.key;
+		lettersOnly = event.keyCode;
+		if (lettersOnly >= 65 && lettersOnly <= 90) {
 
+			letterCheck();
+		} else {
+			alert("Please press a letter!");
+		}
+	}
 }
-//check the letter guessed
+
 function letterCheck() {
 	
 	var letterIndex = answer.indexOf(userGuess);
@@ -50,7 +59,6 @@ function letterCheck() {
     }
     gameCheck();
 }
-// check for win or loss
 
 function gameCheck() {
 	if (remainingGuesses == 0) {
