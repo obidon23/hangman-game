@@ -23,10 +23,6 @@ function start () {
 		goodLetters.push("_");
 	}
 
-	console.log(answer);
-	console.log(letterCount);
-	console.log(goodLetters);
-
 	document.getElementById("sandbox").innerHTML = goodLetters.join(" ");
 	document.getElementById("remainingGuesses").innerHTML = "<p>Remaining Guesses: " + remainingGuesses + "</p>";
 	document.getElementById("wins").innerHTML = "<p>Wins: " + wins +"</p>";
@@ -38,9 +34,13 @@ function letterCheck() {
 
     if (letterIndex > -1) {
         alert(userGuess + " is in the word!");
-        goodLetters.indexOf(userGuess);
+        for (i=0; i < goodLetters.length; i++) {
+        	goodLetters.indexOf(userGuess).join(" ");
+        }
         document.getElementById("sandbox").innerHTML = goodLetters;
-    } else {
+    } 
+
+    else {
         alert(userGuess + " is a wrong answer");
         wrongLetters.push(userGuess);
         remainingGuesses--;
@@ -54,8 +54,14 @@ start();
 
 document.onkeyup = function(event) {
 	userGuess = event.key;
-	letterCheck();
+	lettersOnly = event.keyCode;
+	if (lettersOnly >= 65 && lettersOnly <= 90) {
+
+		letterCheck();
+	} else {
+		alert("Please press a letter!");
 	}
+}	
 
 
 
