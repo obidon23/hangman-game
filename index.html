@@ -39,7 +39,7 @@
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2">
 			<p>
-				Lives hang in the balance and you're the only one who can save them. Try to guess the words represented by the blank spaces below. Press a letter on your keyboard. If it's part of the word, you'll see it below. If not, then our poor prisoner will start to hang. Run out of guesses and it's too late! 
+				The others are coming to Westeros! They're targeting the major houses one by one. If you can figure out who's next on their list, you can save them! Press a letter on your keyboard.  Run out of guesses and the Long Night will return! 
 			</p>
 		</div>		
 	</div>
@@ -54,23 +54,50 @@
 			
 			<div class="col-lg-7 col-lg-offset-1">
 				<div class="row">
-					<button class="btn btn-primary" id="start">
+					<button class="btn btn-success" id="start">
 						New Game
 					</button> 
 				</div>
 
 				<div class="row">
 					<div class="col-lg-7 blanks" id="sandbox">
-
+					<h2> _ _ _ _ _ _ </h2>
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-lg-4 tracker" id="wrongLetters">
+				<div class="row tracker">
+					<div class="col-lg-4">
+						<p>
+							Wrong Answers:
+						</p>
+						<p id="wrongLetters">
+							
+						</p>
 					</div>
-					<div class="col-lg-4 tracker" id="remainingGuesses">
+
+					<div class="col-lg-5">
+						<p>
+							Guesses Remaining: 
+							<span id="remainingGuesse	document.onkeyup = function(event) {
+		userGuess = event.key;
+		lettersOnly = event.keyCode;
+		if (lettersOnly >= 65 && lettersOnly <= 90) {
+
+			letterCheck();
+		} else {
+			alert("Please press a letter!");
+		}
+	}s">
+							</span>
+						</p>
 					</div>
-					<div class="col-lg-4 tracker" id="wins">
+
+					<div class="col-lg-3">
+						<p>
+							Wins: 
+							<span id="wins">
+							</span>
+						</p>
 					</div>	
 				</div>
 			</div>
