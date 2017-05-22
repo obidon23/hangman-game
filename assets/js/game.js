@@ -23,11 +23,9 @@ function start () {
 		goodLetters.push("_");
 	}
 
-	document.getElementById("sandbox").innerHTML = goodLetters.join(" ");
-	document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
-	document.getElementById("wins").innerHTML = wins;
-}
 
+}
+//check the letter guessed
 function letterCheck() {
 	
 	var letterIndex = answer.indexOf(userGuess);
@@ -52,10 +50,16 @@ function letterCheck() {
     }
     gameCheck();
 }
+// check for win or loss
 
 function gameCheck() {
 	if (remainingGuesses == 0) {
 		alert("Oh No! You Lost!");
+
+		var remainingGuesses = 6
+		var goodLetters = []
+		var wrongAnswer = []
+
 		}
 
 	else {
@@ -64,6 +68,10 @@ function gameCheck() {
 		if (blankCheck < 0) {
 			alert("You Won!");
 			wins++;
+
+			var remainingGuesses = 6
+			var goodLetters = []
+			var wrongAnswer = []
 		}
 	}
 
@@ -74,16 +82,9 @@ $("#start").on("click", function() {
 	start();
 });
 
-document.onkeyup = function(event) {
-	userGuess = event.key;
-	lettersOnly = event.keyCode;
-	if (lettersOnly >= 65 && lettersOnly <= 90) {
-
-		letterCheck();
-	} else {
-		alert("Please press a letter!");
-	}
-}	
+document.getElementById("sandbox").innerHTML = goodLetters.join(" ");
+document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
+document.getElementById("wins").innerHTML = wins;	
 
 
 

@@ -43,7 +43,7 @@ h3 {
 	line-height: 60px;
 	display: inline-block;
 	padding: 40px 0;
-	height: 200px;
+	height: 150px;
 }
 
 .game {
@@ -60,7 +60,7 @@ h3 {
 	font-family: 'Shadows Into Light', cursive;
 	padding: 10px;
 	font-size: 12px;
-	height: 50px;
+	height: 100px;
 }
 
 p  {
