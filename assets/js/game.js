@@ -1,39 +1,55 @@
+// variables	
+	var remainingGuesses = 6;
+	var goodLetters = [];
+	answer = "";
+	var wrongLetters = [];
+	var computerChoices = ["stark", "lannister", "targaryen", "tully", "martell", "greyjoy", "baratheon", "tyrell", "drogo", "arryn"];		
+	var wins = 0;
+	var blanks = [];
+	var letterCount = [];
+
+
+// start the game	
+	function start () {
+		var answer = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+		var letterCount = answer.length
+		goodLetters = answer.split("");
 		
-$(document).ready(function(){
-document.querySelector("#start").innerHTML="<h2>How's It Hangin'?</h2>" + "<p>Press &lt;enter&gt; to start the game.</p>"; 
+		var remainingGuesses = 6
+		var wrongLetters = []
+		var goodLetters = []
 
-	var remainingGuesses = 0;
-	var userGuess = ""
-
-	
-	$(document).keyup( function(e) {
-		switch(e.which) {
-			case 13:
-		//pick an answer
-		var computerChoices = ["stark", "lannister", "targaryen", "tully", "martell", "greyjoy", "baratheon", "tyrell", "drogo", "arryn"];				
-		answer = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-		console.log(answer);
+		for (i = 0; i < letterCount; i++) {
+			goodLetters.push("_");
 		}
-	})
- 		
-	for (i = 0; i < answer.length; i++) {
-		var blank = $("<div>")
+		
+document.getElementById("sandbox").innerHTML = goodLetters.join(" ");
+document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
+document.getElementById("wins").innerHTML = wins;
+ }
 
-		$(blank.addClass("blanks"));
-		$(blank.text("_"));
-		$("#sandbox").append(blank);
+function letterCheck(userGuess
+	) {
+
+	var rightAnswer = false
+
+	for (i=0; i<blanks; i++) {
+		if answer[i] == userGuess	{
+			rightAnswer = true;
+			alert(userGuess = " is a right answer.")
+		}
 	}
 
-	document.onkeyup = function(event) {
 
-        // Determine which key was pressed
-        var userGuess = event.key;
-        var str = answer;
-        var n = str.includes(userGuess);
-        document.getElementById("game").innerHTML = n;
-        }
-    });
+start();
+
+document.onkeyup = function(event) {
+	var userGuess = event.key;
+	letterCheck(userGuess);
+
+}
+
+
 
 
 	
