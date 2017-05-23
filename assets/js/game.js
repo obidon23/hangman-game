@@ -1,6 +1,5 @@
 // variables	
 var remainingGuesses = 6;
-var goodLetters = [];
 var answer = "";
 var wrongLetters = [];
 var computerChoices = ["stark", "lannister", "targaryen", "tully", "martell", "greyjoy", "baratheon", "tyrell", "drogo", "arryn"];		
@@ -11,28 +10,22 @@ var userGuess="";
 
 // start the game	
 function start () {
+	blanks = [];
 	answer = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 	letterCount = answer.length;
-	goodLetters = answer.split("");
-
 	remainingGuesses = 6;
 	wrongLetters = [];
-	goodLetters = [];
 
 	for (i = 0; i < letterCount; i++) {
-		goodLetters.push("_");
+		blanks.push("<h2>_</h2>");
 	}
+	
+	document.getElementById("sandbox").innerHTML = blanks.join(" ");
+	document.getElementById("wrongLetters").innerHTML = wrongLetters;
+	document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
 
-	document.onkeyup = function(event) {
-		userGuess = event.key;
-		lettersOnly = event.keyCode;
-		if (lettersOnly >= 65 && lettersOnly <= 90) {
 
-			letterCheck();
-		} else {
-			alert("Please press a letter!");
-		}
-	}
+
 }
 
 function letterCheck() {
@@ -40,22 +33,22 @@ function letterCheck() {
 	var letterIndex = answer.indexOf(userGuess);
 
     if (letterIndex > -1) {
-
-        for (i=0; i < goodLetters.length; i++) {
+        for (i=0; i < answer.length; i++) {
         	if (answer[i] == userGuess) {
-        		goodLetters[i] = (userGuess);
+        		blanks[i] = userGuess;
  			}       
         }
-        document.getElementById("sandbox").innerHTML = "<h2>" + goodLetters.join(" ") + "</h2>";
+        document.getElementById("sandbox").innerHTML = "<h2>" + blanks.join(" ") + "</h2>";
         
     } 
 
     else {
         wrongLetters.push(userGuess);
         remainingGuesses--;
+        // document.getElementById("wrongLetters").innerHTML = wrongLetters;
+        // document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
         document.getElementById("wrongLetters").innerHTML = wrongLetters;
         document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
-        
     }
     gameCheck();
 }
@@ -64,35 +57,40 @@ function gameCheck() {
 	if (remainingGuesses == 0) {
 		alert("Oh No! You Lost!");
 
-		var remainingGuesses = 6
-		var goodLetters = []
-		var wrongAnswer = []
+		remainingGuesses = 6;
+		wrongAnswer = [];
 
 		}
 
 	else {
-		var blankCheck = goodLetters.indexOf("_")
-
+		var blankCheck = blanks.indexOf("_")
+		console.log(blankCheck);
 		if (blankCheck < 0) {
 			alert("You Won!");
 			wins++;
 
-			var remainingGuesses = 6
-			var goodLetters = []
-			var wrongAnswer = []
+			remainingGuesses = 6;
+			wrongAnswer = [];
+			document.getElementById("wins").innerHTML = wins;
 		}
 	}
 
 }
 
+document.onkeyup = function(event) {
+	userGuess = event.key;
+	lettersOnly = event.keyCode;
+	if (lettersOnly >= 65 && lettersOnly <= 90) {
+
+		letterCheck();
+	} else {
+		alert("Please press a letter!");
+	}
+}
 
 $("#start").on("click", function() {
 	start();
 });
-
-document.getElementById("sandbox").innerHTML = goodLetters.join(" ");
-document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
-document.getElementById("wins").innerHTML = wins;	
 
 
 

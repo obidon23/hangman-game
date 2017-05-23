@@ -19,6 +19,7 @@ h1 {
 h2 {
 	font-family: 'Shadows Into Light', cursive;
 	color: #FFF;
+	display: inline-block;
 	
 }
 
