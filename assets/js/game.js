@@ -7,12 +7,19 @@ var wins = 0;
 var blanks = [];
 var letterCount = [];
 var userGuess="";
+var activeGame = false;
+
+document.getElementById("wins").innerHTML = wins;
+document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
 
 // start the game	
 function start () {
+	
+	activeGame = true;
 	blanks = [];
 	answer = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 	letterCount = answer.length;
+	console.log(letterCount);
 	remainingGuesses = 6;
 	wrongLetters = [];
 
@@ -23,8 +30,6 @@ function start () {
 	document.getElementById("sandbox").innerHTML = blanks.join(" ");
 	document.getElementById("wrongLetters").innerHTML = wrongLetters;
 	document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
-
-
 
 }
 
@@ -38,7 +43,7 @@ function letterCheck() {
         		blanks[i] = userGuess;
  			}       
         }
-        document.getElementById("sandbox").innerHTML = "<h2>" + blanks.join(" ") + "</h2>";
+        document.getElementById("sandbox").innerHTML = blanks.join(" ");
         
     } 
 
@@ -47,7 +52,7 @@ function letterCheck() {
         remainingGuesses--;
         // document.getElementById("wrongLetters").innerHTML = wrongLetters;
         // document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
-        document.getElementById("wrongLetters").innerHTML = wrongLetters;
+        document.getElementById("wrongLetters").innerHTML = wrongLetters + " ";
         document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
     }
     gameCheck();
@@ -56,35 +61,32 @@ function letterCheck() {
 function gameCheck() {
 	if (remainingGuesses == 0) {
 		alert("Oh No! You Lost!");
-
-		remainingGuesses = 6;
-		wrongAnswer = [];
-
+		activeGame = false;
 		}
 
 	else {
-		var blankCheck = blanks.indexOf("_")
-		console.log(blankCheck);
+		var blankCheck = blanks.indexOf("<h2>_</h2>")
 		if (blankCheck < 0) {
 			alert("You Won!");
 			wins++;
-
-			remainingGuesses = 6;
-			wrongAnswer = [];
 			document.getElementById("wins").innerHTML = wins;
+			activeGame = false;
 		}
+	
 	}
 
 }
 
 document.onkeyup = function(event) {
-	userGuess = event.key;
-	lettersOnly = event.keyCode;
-	if (lettersOnly >= 65 && lettersOnly <= 90) {
+	if (activeGame === true){
+		userGuess = event.key;
+		lettersOnly = event.keyCode;
+		if (lettersOnly >= 65 && lettersOnly <= 90) {
 
-		letterCheck();
-	} else {
-		alert("Please press a letter!");
+			letterCheck();
+		} else {
+			alert("Please press a letter!");
+		}
 	}
 }
 

@@ -20,7 +20,6 @@ h2 {
 	font-family: 'Shadows Into Light', cursive;
 	color: #FFF;
 	display: inline-block;
-	
 }
 
 h3 {
@@ -36,7 +35,7 @@ h3 {
 }
 
 .blanks {
-	font-family: 'Arial', sans-serif;
+	font-family: 'Shadows Into Light', sans-serif;
 	color: #fff;
 	font-size: 40px; 
 	text-align: center;
@@ -59,9 +58,27 @@ h3 {
 	background-color: gray;
 	color: #fff;
 	font-family: 'Shadows Into Light', cursive;
-	padding: 10px;
 	font-size: 12px;
+	text-align: center;
+}
+
+.wins {
+	background-color: green;
 	height: 100px;
+	padding: 10px;
+	
+}
+
+.remainingGuesses {
+	background-color: red;
+	height: 100px;
+	padding: 10px;
+}
+
+.wrongLetters {
+	height: 100px;
+	padding: 10px;
+	background-color: blue;
 }
 
 p  {
