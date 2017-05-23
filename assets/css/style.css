@@ -21,6 +21,10 @@ h1 {
 	text-align: center;
 }
 
+.image {
+	width: 100%;
+}
+
 h2 {
 	font-family: 'Shadows Into Light', cursive;
 	color: #FFF;
