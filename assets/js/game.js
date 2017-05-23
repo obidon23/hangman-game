@@ -91,6 +91,7 @@ document.onkeyup = function(event) {
 }
 
 $("#start").on("click", function() {
+	$("#start").blur();
 	start();
 	if ($(this).hasClass('active')) {
       setTimeout(function() {
