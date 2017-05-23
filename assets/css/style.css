@@ -8,8 +8,13 @@ header {
 	height: 100%;
 }
 
+@font-face {
+	font-family: gameOfThrones;
+	src: url(../fonts/Game-of-Thrones.ttf);
+}
+
 h1 {
-	font-family: 'Bree Serif', serif;
+	font-family: gameOfThrones, sans-serif;
 	font-size: 32px;
 	font-weight: bold;
 	color: #f6f6f6;

@@ -92,6 +92,11 @@ document.onkeyup = function(event) {
 
 $("#start").on("click", function() {
 	start();
+	if ($(this).hasClass('active')) {
+      setTimeout(function() {
+        $(this).removeClass('active').find('input').prop('checked', false);
+      }.bind(this), 10);
+    }
 });
 
 
