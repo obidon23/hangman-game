@@ -81,7 +81,7 @@ document.onkeyup = function(event) {
 	if (activeGame === true){
 		userGuess = event.key;
 		lettersOnly = event.keyCode;
-		if (lettersOnly >= 65 && lettersOnly <= 90 || lettersOnly >= 97 && lettersOnly <= 122) {
+		if ((lettersOnly >= 65 && lettersOnly <= 90) || (lettersOnly >= 97 && lettersOnly <= 122)) {
 
 			letterCheck();
 		} else {
