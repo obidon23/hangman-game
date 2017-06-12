@@ -1,8 +1,11 @@
 // variables	
 var remainingGuesses = 6;
 var answer = "";
+var answerIndex;
 var wrongLetters = [];
-var computerChoices = ["stark", "lannister", "targaryen", "tully", "martell", "greyjoy", "baratheon", "tyrell", "drogo", "arryn"];		
+var computerChoices = ["stark", "lannister", "targaryen", "tully", "martell", "greyjoy", "baratheon", "tyrell", "drogo", "arryn", "mormont", "baelish", "connington"];
+var images = ["stark.gif", "lannister.gif", "targaryen.gif", "tully.gif", "martell.gif", "greyjoy.gif", "baratheon.gif", "tyrell.gif", "drogo.gif", "arryn.gif", "mormont.gif", "baelish.gif", "connington.jpg"];		
+var winnerMessage = ["Winter is coming", "Hear Me Roar", "Blood & Fire", "Family. Duty. Honor.", "Unbowed. Unbent. Unbroken", "We Do Not Sow", "Ours is the Fury", "Growing Strong", "The Stallion that Mounts the world", "As High as Honor", "Here We Stand", "Only Cat", "A Griffin! A Griffin!"];
 var wins = 0;
 var blanks = [];
 var letterCount = [];
@@ -18,8 +21,9 @@ function start () {
 	activeGame = true;
 	blanks = [];
 	answer = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+	answerIndex = computerChoices.indexOf(answer);
+	console.log(answer);
 	letterCount = answer.length;
-	console.log(letterCount);
 	remainingGuesses = 6;
 	wrongLetters = [];
 
@@ -59,23 +63,25 @@ function letterCheck() {
 }
 
 function gameCheck() {
-	if (remainingGuesses == 0) {
-		alert("Oh No! You Lost!");
+	if (remainingGuesses === 0) {
+		$(".image").html("<img>").attr("src", "assets/images/nightsking.jpg");
+		$(".image").append("<p>").text("The Long Night Begins!");
 		activeGame = false;
 		}
 
 	else {
-		var blankCheck = blanks.indexOf("<h2>_</h2>")
+		var blankCheck = blanks.indexOf("<h2>_</h2>");
 		if (blankCheck < 0) {
-			alert("You Won!");
-			wins++;
-			document.getElementById("wins").innerHTML = wins;
-			activeGame = false;
-		}
-	
-	}
 
+					$(".image").html("<img>").attr("src", 'assets/images/' + images[answerIndex]);
+					$(".image").append("<p>").text(winnerMessage[answerIndex]);
+					wins++;
+					document.getElementById("wins").innerHTML = wins;
+					activeGame = false;
+		}
+	}
 }
+
 
 document.onkeyup = function(event) {
 	if (activeGame === true){
