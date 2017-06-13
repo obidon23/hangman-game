@@ -5,7 +5,7 @@ var answerIndex;
 var wrongLetters = [];
 var computerChoices = ["stark", "lannister", "targaryen", "tully", "martell", "greyjoy", "baratheon", "tyrell", "drogo", "arryn", "mormont", "baelish", "connington"];
 var images = ["stark.gif", "lannister.gif", "targaryen.gif", "tully.gif", "martell.gif", "greyjoy.gif", "baratheon.gif", "tyrell.gif", "drogo.gif", "arryn.gif", "mormont.gif", "baelish.gif", "connington.jpg"];		
-var winnerMessage = ["Winter is coming", "Hear Me Roar", "Blood & Fire", "Family. Duty. Honor.", "Unbowed. Unbent. Unbroken", "We Do Not Sow", "Ours is the Fury", "Growing Strong", "The Stallion that Mounts the world", "As High as Honor", "Here We Stand", "Only Cat", "A Griffin! A Griffin!"];
+var winnerMessage = ["Winter is coming", "Hear Me Roar", "Blood & Fire", "Family. Duty. Honor.", "Unbowed. Unbent. Unbroken.", "We Do Not Sow", "Ours is the Fury", "Growing Strong", "The Stallion that Mounts the World", "As High as Honor", "Here We Stand", "Only Cat", "A Griffin! A Griffin!"];
 var wins = 0;
 var blanks = [];
 var letterCount = [];
@@ -26,6 +26,9 @@ function start () {
 	letterCount = answer.length;
 	remainingGuesses = 6;
 	wrongLetters = [];
+
+	$(".image").html("<img>").attr("src", "assets/images/hangman.png").addClass("image");
+	$(".image").append("<p>").text("And Now Your Watch Begins").addClass("image");
 
 	for (i = 0; i < letterCount; i++) {
 		blanks.push("<h2>_</h2>");
@@ -64,8 +67,8 @@ function letterCheck() {
 
 function gameCheck() {
 	if (remainingGuesses === 0) {
-		$(".image").html("<img>").attr("src", "assets/images/nightsking.jpg");
-		$(".image").append("<p>").text("The Long Night Begins!");
+		$(".image").html("<img>").attr("src", "assets/images/nightsking.gif");
+		$(".image").append("<p>").text("And Now Your Watch Has Ended");
 		activeGame = false;
 		}
 
