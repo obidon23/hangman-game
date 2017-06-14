@@ -1,11 +1,15 @@
+html {
+	min-height: 100%;
+	position: relative;
+	display: block;
+}
 header {
 	width: 100%;
 	padding: 20px;
 }
 
-.container-fluid {
+body {
 	background-color: #000;
-	height: 30%;
 }
 
 @font-face {
@@ -99,11 +103,15 @@ p  {
 	letter-spacing: .5px;
 }
 
-footer {
+.footer {
 	text-align: center;
 	font-family: 'Bree Serif', serif;
 	font-size: 16px;
 	padding: 10px;
+	position: absolute;
+	bottom: 0;
+	height: 40px;
+	width: 100%;
 }
 
 p.image {
