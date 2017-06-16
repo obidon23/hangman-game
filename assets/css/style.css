@@ -113,6 +113,7 @@ p  {
 	line-height: 30px;
 	color: #eee;
 	letter-spacing: .5px;
+	text-align: margin;
 }
 
 .footer {
