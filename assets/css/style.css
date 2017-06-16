@@ -95,6 +95,18 @@ h3 {
 	background-color: blue;
 }
 
+.col-md-4.wrongLetters p {
+	font-size: 16px;
+}
+
+.col-md-5.remainingGuesses p {
+	font-size: 16px;
+}
+
+.col-md-3.wins p {
+	font-size: 16px;
+}
+
 p  {
 	font-family: 'Shadows Into Light', cursive;
 	font-size: 20px;
