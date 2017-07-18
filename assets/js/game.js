@@ -33,7 +33,6 @@ function start () {
 	for (i = 0; i < letterCount; i++) {
 		blanks.push("<h2>_</h2>");
 	}
-	// $(".game").append("<input type='hidden' name='touchpad'</input>");
 	document.getElementById("sandbox").innerHTML = blanks.join(" ");
 	document.getElementById("wrongLetters").innerHTML = wrongLetters;
 	document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
